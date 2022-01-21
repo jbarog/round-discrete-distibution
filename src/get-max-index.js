@@ -4,4 +4,4 @@ const getMaxIndex = (array) => {
   return maxIndex;
 };
 
-export default getMaxIndex;
+module.exports = getMaxIndex;

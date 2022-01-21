@@ -1,19 +1,19 @@
 /* eslint-disable max-len */
-import identity from './identity';
-import sumArray from './sum-array';
-import getMaxIndex from './get-max-index';
+const sumArray = require('sum-any-array');
+const identity = require('arrow-identity');
+const getMaxIndex = require('./get-max-index');
 
-const roundDiscretePopulation = (originalDistribution, finalPopulation, parseDistributionFnc = identity) => {
-  const population = sumArray(originalDistribution, parseDistributionFnc);
+const roundDiscreteDistribution = (originalDistribution, finalDistributionSize, parseDistributionFnc = identity) => {
+  const originalDistributionSize = sumArray(originalDistribution, parseDistributionFnc);
   const normalDistribution = [];
   const decimalDistribution = [];
   const integerDistribution = [];
   const groupDecimals = [];
-  let nonAssignedCount = finalPopulation;
+  let nonAssignedCount = finalDistributionSize;
 
   originalDistribution.forEach((group) => {
-    const groupProportion = parseDistributionFnc(group) / population;
-    const groupNumber = finalPopulation * groupProportion;
+    const groupProportion = parseDistributionFnc(group) / originalDistributionSize;
+    const groupNumber = finalDistributionSize * groupProportion;
     const integerProportion = Math.trunc(groupNumber);
     const decimalProportion = groupNumber - integerProportion;
     nonAssignedCount -= integerProportion;
@@ -34,8 +34,9 @@ const roundDiscretePopulation = (originalDistribution, finalPopulation, parseDis
     decimalDistribution,
     integerDistribution,
     normalDistribution,
-    finalPopulation,
+    originalDistributionSize,
+    finalDistributionSize,
   };
 };
 
-export default roundDiscretePopulation;
+module.exports = roundDiscreteDistribution;

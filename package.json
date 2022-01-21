@@ -1,8 +1,8 @@
 {
   "name": "round-discrete-distibution",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Round discrete distributions over diferent number of events",
-  "main": "index.js",
+  "main": "./src/round-discrete-distribution.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint ./ --ext .js --fix"
@@ -25,10 +25,13 @@
   },
   "homepage": "https://github.com/jbarog/round-discrete-distibution#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
     "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "sum-any-array": "^1.0.1",
+    "arrow-identity": "^1.0.1"
   }
 }

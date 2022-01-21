@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import { DEFAULT_PLAIN_DISTRIBUTION } from './test-objects';
-import getMaxIndex from '../src/get-max-index';
+const { DEFAULT_PLAIN_DISTRIBUTION } = require('./test-objects');
+const getMaxIndex = require('../src/get-max-index');
 
 describe('test getMaxIndex', () => {
   test('should return max on plain array', async () => {

@@ -24,7 +24,7 @@ Lets round values!
 
 No splited persons. 🎉 But now I have 16 people 😔.
 
-**roundDiscretePopulation** will return what I need:
+**roundDiscreteDistribution** will return what I need:
 
 *Integerdistribution*
 
@@ -66,15 +66,14 @@ and object arrays
 `npm install --save round-discrete-distibution`
 
 ## Usage
-### roundDiscretePopulationroundDiscretePopulation
 
 ```javascript
-import { roundDiscretePopulation } from 'round-discrete-population';
+import { roundDiscreteDistibution } from 'round-discrete-distibution';
 
 const initialDistribution = [1, 4, 3, 2];
 const finalDistributionSize = 15;
 
-const newDistribution = roundDiscretePopulation(initialDistribution, finalDistributionSize);
+const newDistribution = roundDiscreteDistibution(initialDistribution, finalDistributionSize);
 
 console.log(newDistribution);
 /*
@@ -82,13 +81,13 @@ console.log(newDistribution);
     "decimalDistribution": [1.5, 6, 4.5, 3],
     "integerDistribution": [2, 6, 4, 3],
     "normalDistribution": [0.14, 0.4, 0.26, 0.2],
-    "finalPopulation": 15,
+    "finalDistributionSize": 15,
 }
 */
 ```
 Or using object array:
 ```javascript
-import { roundDiscretePopulation } from 'round-discrete-population';
+import { roundDiscreteDistibution } from 'round-discrete-distibution';
 
 const initialDistribution =    [
       {
@@ -112,7 +111,7 @@ const finalDistributionSize = 15;
 
 const getValue = (item) => item.value;
 
-const newDistribution = roundDiscretePopulation(initialDistribution, finalDistributionSize, getValue);
+const newDistribution = roundDiscreteDistibution(initialDistribution, finalDistributionSize, getValue);
 
 console.log(newDistribution);
 /*
@@ -120,53 +119,8 @@ console.log(newDistribution);
     "decimalDistribution": [1.5, 6, 4.5, 3],
     "integerDistribution": [2, 6, 4, 3],
     "normalDistribution": [0.14, 0.4, 0.26, 0.2],
-    "finalPopulation": 15,
+    "finalDistributionSize": 15,
 }
-*/
-```
-### sumArray
-This method sums an array that could be an array of objects if parse function is provided.
-```javascript
-import { sumArray } from 'round-discrete-population';
-
-const distribution = [1, 4, 2, 3];
-
-const sum = sumArray(distribution);
-
-console.log(sum);
-/*
-10
-*/
-```
-Or using object array:
-```javascript
-import { sumArray } from 'round-discrete-population';
-
-const distribution = [
-      {
-        "name": "👨‍⚕️",
-        "value": 1
-      },
-      {
-        "name": "👩‍🏫",
-        "value": 4
-      },
-	  {
-        "name": "👨‍🍳",
-        "value": 3
-      },
-      {
-        "name": "👩‍🔧",
-        "value": 2
-      },
-    ];
-const getValue = (item) => item.value;
-
-const sum = sumArray(distribution, getValue);
-
-console.log(sum);
-/*
-10
 */
 ```
 ## License
